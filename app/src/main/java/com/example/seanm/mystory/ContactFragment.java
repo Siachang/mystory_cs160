@@ -2,6 +2,7 @@ package com.example.seanm.mystory;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -65,13 +66,12 @@ public class ContactFragment extends Fragment {
         RecyclerView pendingRView = (RecyclerView) view.findViewById(R.id.pending_list);
         pendingRView.setLayoutManager(new LinearLayoutManager(context));
         pendingRView.setNestedScrollingEnabled(false);
-        pendingRView.setAdapter(new MyContactRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+        pendingRView.setAdapter(new MyPendingRecyclerViewAdapter(DummyContent.ITEMS, mListener));
 
         RecyclerView currentRView = (RecyclerView) view.findViewById(R.id.friends_list);
         currentRView.setLayoutManager(new LinearLayoutManager(context));
         currentRView.setNestedScrollingEnabled(false);
         currentRView.setAdapter(new MyContactRecyclerViewAdapter(DummyContent.ITEMS, mListener));
-
         return view;
     }
 
@@ -79,6 +79,7 @@ public class ContactFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
         if (context instanceof OnListFragmentInteractionListener) {
             mListener = (OnListFragmentInteractionListener) context;
         } else {

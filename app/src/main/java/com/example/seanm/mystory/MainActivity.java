@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,11 +66,21 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
                         .setAction("Action", null).show();
             }
         });
-
+        fab.hide();
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager) {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab){
+                super.onTabSelected(tab);
+                if (tab.getPosition() == 1) {
+                    fab.show();
+                } else {
+                    fab.hide();
+                }
+            }
+        });
 
     }
 
