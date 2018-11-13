@@ -1,9 +1,11 @@
 package com.example.seanm.mystory;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.seanm.mystory.MemoryFragment.OnListFragmentInteractionListener;
@@ -36,8 +38,8 @@ public class MyMemoryRecyclerViewAdapter extends RecyclerView.Adapter<MyMemoryRe
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        // set mImgView content here and set real mTextView content below
+        holder.mTextView.setText(mValues.get(position).content);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,20 +60,20 @@ public class MyMemoryRecyclerViewAdapter extends RecyclerView.Adapter<MyMemoryRe
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
+        public final ImageView mImgView;
+        public final TextView mTextView;
         public DummyItem mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mImgView = (ImageView) view.findViewById(R.id.imageView);
+            mTextView = (TextView) view.findViewById(R.id.textView);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + mTextView.getText() + "'";
         }
     }
 }

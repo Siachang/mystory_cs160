@@ -106,4 +106,5 @@ public class MemoryFragment extends Fragment {
         // TODO: Update argument type and name
         void onListFragmentInteraction(DummyItem item);
     }
+
 }

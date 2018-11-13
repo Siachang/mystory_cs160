@@ -29,6 +29,7 @@
     <string name="title_activity_invite_friends">InviteFriends</string>
     <string name="invite_friends_intro">Connect with family and friends so you can share your timeline</string>
     <string name="send_invitation">Send Invitation</string>
+    <string name="title_activity_detailed_memory_view">DetailedMemoryView</string>
 
 
     <string-array name="suggested_questions">

@@ -59,6 +59,7 @@
                 android:value="com.example.seanm.mystory.MainActivity" />
         </activity>
         <activity android:name=".createMemory"></activity>
+        <activity android:name=".DetailedMemoryView"></activity>
     </application>
 
 </manifest>
