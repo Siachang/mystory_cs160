@@ -31,4 +31,13 @@
     <string name="send_invitation">Send Invitation</string>
 
 
+    <string-array name="suggested_questions">
+        <item> What is your favorite memory from high school </item>
+        <item> What do you remember most about your parents? </item>
+        <item> What kinds of clothes, hobbies, slang terms were popular when your were a teenager? </item>
+        <item> What was your favorite thing about school? </item>
+        <item> What was your first job? </item>
+        <item> Who were your role models when you were young? </item>
+    </string-array>
+
 </resources>

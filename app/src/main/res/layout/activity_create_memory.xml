@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".createMemory">
+
+<TextView
+    android:id="@+id/memoryTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="20dp"
+    android:text="title"
+    />
+
+<TextView
+    android:id="@+id/memoryText"
+    android:layout_width="match_parent"
+    android:layout_height="359dp"
+    android:layout_below="@+id/memoryTitle"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentLeft="true"
+    android:layout_margin="20dp"
+    android:text="memory" />
+
+<Button
+    android:id="@+id/saveButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/memoryText"
+    android:layout_marginStart="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="20dp"
+    android:layout_toEndOf="@+id/cancelButton"
+    android:layout_toRightOf="@+id/cancelButton"
+    android:text="Save" />
+
+<Button
+    android:id="@+id/cancelButton"
+    android:layout_width="98dp"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/memoryText"
+    android:layout_marginStart="157dp"
+
+    android:layout_marginLeft="157dp"
+    android:layout_marginTop="10dp"
+    android:text="Cancel" />
+
+</RelativeLayout>
