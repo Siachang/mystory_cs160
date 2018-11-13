@@ -25,6 +25,10 @@
     <string name="contacts">Contacts</string>
     <string name="pending_request">Pending Request</string>
     <string name="current_friends">Current Connections</string>
+    <!-- Strings related to invite friends -->
+    <string name="title_activity_invite_friends">InviteFriends</string>
+    <string name="invite_friends_intro">Connect with family and friends so you can share your timeline</string>
+    <string name="send_invitation">Send Invitation</string>
 
 
 </resources>

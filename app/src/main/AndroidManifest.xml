@@ -49,6 +49,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.seanm.mystory.LoginActivity" />
         </activity>
+        <activity
+            android:name=".InviteFriends"
+            android:label="@string/title_activity_invite_friends"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.seanm.mystory.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

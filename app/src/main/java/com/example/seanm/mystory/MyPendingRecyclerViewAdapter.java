@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.seanm.mystory.ContactFragment.OnListFragmentInteractionListener;
@@ -38,7 +39,7 @@ public class MyPendingRecyclerViewAdapter extends RecyclerView.Adapter<MyPending
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).content);
-
+        final int pos = position;
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +48,21 @@ public class MyPendingRecyclerViewAdapter extends RecyclerView.Adapter<MyPending
                     // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(holder.mItem);
                 }
+            }
+        });
+        holder.mApproveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mValues.remove(holder.mItem);
+                //notifyItemRemoved(pos);
+                notifyDataSetChanged();
+            }
+        });
+        holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mValues.remove(holder.mItem);
+                notifyDataSetChanged();
             }
         });
     }
@@ -60,6 +76,8 @@ public class MyPendingRecyclerViewAdapter extends RecyclerView.Adapter<MyPending
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
+        public final Button mApproveButton;
+        public final Button mDeleteButton;
         public DummyItem mItem;
 
         public ViewHolder(View view) {
@@ -67,6 +85,9 @@ public class MyPendingRecyclerViewAdapter extends RecyclerView.Adapter<MyPending
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
+            mApproveButton = (Button) view.findViewById(R.id.approve);
+
+            mDeleteButton = (Button) view.findViewById(R.id.delete);
         }
 
         @Override

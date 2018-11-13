@@ -1,5 +1,6 @@
 package com.example.seanm.mystory;
 
+import android.content.Intent;
 import android.support.constraint.Placeholder;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.seanm.mystory.dummy.DummyContent;
 
@@ -58,16 +60,18 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
+        final TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if (tabLayout.getSelectedTabPosition() == 1) {
+                    Intent intent = new Intent(getBaseContext(), InviteFriends.class);
+                    startActivity(intent);
+                }
             }
         });
-        fab.hide();
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager) {
@@ -76,8 +80,9 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
                 super.onTabSelected(tab);
                 if (tab.getPosition() == 1) {
                     fab.show();
+                    fab.setImageDrawable(getResources().getDrawable(android.R.drawable.btn_plus));
                 } else {
-                    fab.hide();
+                    fab.setImageDrawable(getResources().getDrawable(android.R.drawable.ic_input_add));
                 }
             }
         });
@@ -110,6 +115,13 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
 
+    }
+
+    public void confirmRequest(View view) {
+        Toast toast = new Toast(getApplicationContext());
+        toast.setText("Testing 123");
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.show();
     }
 
 
