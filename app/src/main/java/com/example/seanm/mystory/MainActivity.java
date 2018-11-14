@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
      */
     private ViewPager mViewPager;
 
+    // says if two floating action buttons on timeline are being shown
+    private boolean optionsShown = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,13 +66,35 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
         final TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab2.hide();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (tabLayout.getSelectedTabPosition() == 1) {
                     Intent intent = new Intent(getBaseContext(), InviteFriends.class);
                     startActivity(intent);
+                } else {
+                    if (optionsShown) {
+                        optionsShown = false;
+                        fab2.hide();
+                        Intent intent = new Intent(getBaseContext(), createMemory.class);
+                        startActivity(intent);
+                    } else {
+                        optionsShown = true;
+                        fab2.show();
+                    }
                 }
+            }
+        });
+
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                optionsShown = false;
+                fab2.hide();
+                Intent intent = new Intent(getBaseContext(), questionCard.class);
+                startActivity(intent);
             }
         });
 
@@ -79,8 +104,9 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
             public void onTabSelected(TabLayout.Tab tab){
                 super.onTabSelected(tab);
                 if (tab.getPosition() == 1) {
-                    fab.show();
                     fab.setImageDrawable(getResources().getDrawable(android.R.drawable.btn_plus));
+                    optionsShown = false;
+                    fab2.hide();
                 } else {
                     fab.setImageDrawable(getResources().getDrawable(android.R.drawable.ic_input_add));
                 }
@@ -114,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
 
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
-
+        
     }
 
     public void confirmRequest(View view) {
