@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
             public void onClick(View view) {
                 optionsShown = false;
                 fab2.hide();
-                Intent intent = new Intent(getBaseContext(), questionCard.class);
+                Intent intent = new Intent(getBaseContext(), QuestionsActivity.class);
                 startActivity(intent);
             }
         });
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements ContactFragment.O
 
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
-        
+
     }
 
     public void confirmRequest(View view) {

@@ -26,13 +26,15 @@ public class QuestionsActivity extends AppCompatActivity {
         context = this;
 
 
+
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_questions);
+
         //RETRIEVE QUESTIONS
 
 
         initRecyclerView(questions);
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions);
     }
 
 
