@@ -58,8 +58,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.seanm.mystory.MainActivity" />
         </activity>
-        <activity android:name=".createMemory"></activity>
-        <activity android:name=".DetailedMemoryView"></activity>
+        <activity android:name=".createMemory" />
+        <activity android:name=".DetailedMemoryView" />
+        <activity android:name=".QuestionsActivity"></activity>
     </application>
 
 </manifest>
